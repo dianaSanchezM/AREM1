@@ -5,12 +5,19 @@ import java.math.BigInteger;
 import java.util.LinkedList;
 import java.util.List;
 
-public class PrimeFinder{
-        
+public class PrimeFinder extends Thread{
+        private BigInteger _a;
+	private  BigInteger _b;
+        private PrimesResultSet prs;
+
+    public PrimeFinder(BigInteger _a, BigInteger _b, PrimesResultSet prs) {
+        this._a = _a;
+        this._b = _b;
+        this.prs = prs;
+    }
 	
-	
         
-	public static void findPrimes(BigInteger _a, BigInteger _b, PrimesResultSet prs){
+	public void run(){
             
                 BigInteger a=_a;
                 BigInteger b=_b;
